@@ -18,11 +18,11 @@
     (throw (Exception. (str "Repo not found for path " org "/" repo)))))
 
 (defn get-commit-count-sync [keys]
-  (let [[org repo user] keys 
+  (let [[org repo user] keys
         result (get-repo [org repo])]
-       (if-let [count (get result user)]
-         count
-         0)))
+    (if-let [count (get result user)]
+      count
+      0)))
 
 (defn get-commit-count-async [keys]
   (Thread/sleep 1000) ; Simulate some API call
@@ -43,8 +43,7 @@
                ["org1/repo2" "user3"]
                ["org2/repo1" "user1"]
                ["org2/repo2" "user2"]
-               ["org2/repo3" "user2"]
-               ]))
+               ["org2/repo3" "user2"]]))
 
 ;; Exercise 1: Get the total number of commits for users in all repos. Assume the happy path.
 (defn exercise1 [repo-user-list] (???))
@@ -54,16 +53,15 @@
 
 ;; Exercise 3: Get the total number of commits for each user as map of user and commits. Ignore repos that do not exist.
 (defn exercise3 [repo-user-list] (???))
-              
 
-(defn -main 
+
+(defn -main
   [& _]
   (doall
-   [ ;; (time (exercise0 org-repo-users))
+   [;; (time (exercise0 org-repo-users))
     (time (exercise1 org-repo-users))
     (time (exercise2 org-repo-users :user2))
     (time (exercise2 org-repo-users :user3))
     (time (exercise2 org-repo-users :user1))
-    (time (exercise3 org-repo-users))]))
-
-(-main)
+    (time (exercise3 org-repo-users))])
+  (shutdown-agents))

@@ -5,7 +5,6 @@
             :url "https://www.eclipse.org/legal/epl-2.0/"}
   :dependencies [[org.clojure/clojure "1.11.1"]
                  [org.clojure/core.async "1.2.603"]]
-  :main ^:skip-aot github.core
   :target-path "target/%s"
-  :profiles {:uberjar {:aot :all
-                       :jvm-opts ["-Dclojure.compiler.direct-linking=true"]}})
+  :profiles {:github {:main ^:skip-aot github.solutions}
+             :tokenizer {:main ^:skip-aot tokenizer.solutions}})

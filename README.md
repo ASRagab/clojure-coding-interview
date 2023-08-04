@@ -33,3 +33,14 @@ Easiest
 
 Harder
 - https://github.com/clojure-emacs/cider (Emacs Extension) *some feel this is the only correct IDE*
+
+
+### Running Solutions
+
+You can run the github solutions using
+
+`lein with-profile github run`
+
+Similiarly with the tokenizer solutions
+
+`lein with-profile tokenizer run`
